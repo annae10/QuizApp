@@ -1,7 +1,9 @@
 package com.harman.quizapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.GridView
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 
 class Stats : AppCompatActivity() {
@@ -19,5 +21,11 @@ class Stats : AppCompatActivity() {
 
         val simpleGrid: GridView = findViewById<GridView>(R.id.gridView)
         simpleGrid.adapter = StatAdapter(this, allStat)
+
+        val nextBtn = findViewById<ImageButton>(R.id.next_button)
+        nextBtn.setOnClickListener{
+            val intent: Intent = Intent(this, Category::class.java)
+            startActivity(intent)
+        }
     }
 }
